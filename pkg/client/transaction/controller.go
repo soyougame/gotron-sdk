@@ -6,13 +6,12 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/fbsobreira/gotron-sdk/pkg/client"
-	"github.com/fbsobreira/gotron-sdk/pkg/common"
-	"github.com/fbsobreira/gotron-sdk/pkg/keystore"
-	"github.com/fbsobreira/gotron-sdk/pkg/ledger"
-	"github.com/fbsobreira/gotron-sdk/pkg/proto/api"
-	"github.com/fbsobreira/gotron-sdk/pkg/proto/core"
-	proto "github.com/golang/protobuf/proto"
+	"github.com/golang/protobuf/proto"
+	"github.com/soyougame/gotron-sdk/pkg/client"
+	"github.com/soyougame/gotron-sdk/pkg/common"
+	"github.com/soyougame/gotron-sdk/pkg/keystore"
+	"github.com/soyougame/gotron-sdk/pkg/proto/api"
+	"github.com/soyougame/gotron-sdk/pkg/proto/core"
 )
 
 var (
@@ -83,32 +82,6 @@ func (C *Controller) signTxForSending() {
 	C.tx = signedTransaction
 }
 
-func (C *Controller) hardwareSignTxForSending() {
-	if C.executionError != nil {
-		return
-	}
-	data, _ := C.GetRawData()
-	signature, err := ledger.SignTx(data)
-	if err != nil {
-		C.executionError = err
-		return
-	}
-
-	/* TODO: validate signature
-	if strings.Compare(signerAddr, address.ToBech32(C.sender.account.Address)) != 0 {
-		C.executionError = ErrBadTransactionParam
-		errorMsg := "signature verification failed : sender address doesn't match with ledger hardware address"
-		C.transactionErrors = append(C.transactionErrors, &Error{
-			ErrMessage:           &errorMsg,
-			TimestampOfRejection: time.Now().Unix(),
-		})
-		return
-	}
-	*/
-	// add signature
-	C.tx.Signature = append(C.tx.Signature, signature)
-}
-
 // TransactionHash extract hash from TX
 func (C *Controller) TransactionHash() (string, error) {
 	rawData, err := C.GetRawData()
@@ -131,7 +104,7 @@ func (C *Controller) txConfirmation() {
 			C.executionError = fmt.Errorf("could not get tx hash")
 			return
 		}
-		//fmt.Printf("TX hash: %s\nWaiting for confirmation....", txHash)
+		// fmt.Printf("TX hash: %s\nWaiting for confirmation....", txHash)
 		start := int(C.Behavior.ConfirmationWaitTime)
 		for {
 			// GETTX by ID
@@ -170,8 +143,7 @@ func (C *Controller) ExecuteTransaction() error {
 	switch C.Behavior.SigningImpl {
 	case Software:
 		C.signTxForSending()
-	case Ledger:
-		C.hardwareSignTxForSending()
+
 	}
 	C.sendSignedTx()
 	C.txConfirmation()

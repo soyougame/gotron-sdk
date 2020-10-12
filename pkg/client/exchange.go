@@ -5,10 +5,10 @@ import (
 	"encoding/binary"
 	"fmt"
 
-	"github.com/fbsobreira/gotron-sdk/pkg/common"
-	"github.com/fbsobreira/gotron-sdk/pkg/proto/api"
-	"github.com/fbsobreira/gotron-sdk/pkg/proto/core"
 	"github.com/golang/protobuf/proto"
+	"github.com/soyougame/gotron-sdk/pkg/common"
+	"github.com/soyougame/gotron-sdk/pkg/proto/api"
+	"github.com/soyougame/gotron-sdk/pkg/proto/core"
 )
 
 // ExchangeList of bancor TRC10, use page -1 to list all

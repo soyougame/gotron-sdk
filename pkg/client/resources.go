@@ -3,9 +3,9 @@ package client
 import (
 	"context"
 
-	"github.com/fbsobreira/gotron-sdk/pkg/common"
-	"github.com/fbsobreira/gotron-sdk/pkg/proto/api"
-	"github.com/fbsobreira/gotron-sdk/pkg/proto/core"
+	"github.com/soyougame/gotron-sdk/pkg/common"
+	"github.com/soyougame/gotron-sdk/pkg/proto/api"
+	"github.com/soyougame/gotron-sdk/pkg/proto/core"
 )
 
 // GetAccountResource from BASE58 address

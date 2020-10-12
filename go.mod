@@ -10,7 +10,6 @@ require (
 	github.com/fatih/color v1.9.0
 	github.com/fatih/structs v1.1.0
 	github.com/golang/protobuf v1.4.2
-	github.com/karalabe/hid v1.0.0
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/pborman/uuid v1.2.1
 	github.com/pkg/errors v0.9.1

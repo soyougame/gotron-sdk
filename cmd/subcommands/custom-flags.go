@@ -1,8 +1,8 @@
 package cmd
 
 import (
-	"github.com/fbsobreira/gotron-sdk/pkg/address"
 	"github.com/pkg/errors"
+	"github.com/soyougame/gotron-sdk/pkg/address"
 )
 
 type tronAddress struct {

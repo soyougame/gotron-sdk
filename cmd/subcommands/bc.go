@@ -6,10 +6,10 @@ import (
 	"time"
 
 	"github.com/fatih/structs"
-	"github.com/fbsobreira/gotron-sdk/pkg/address"
-	"github.com/fbsobreira/gotron-sdk/pkg/common"
-	"github.com/fbsobreira/gotron-sdk/pkg/proto/core"
 	"github.com/golang/protobuf/ptypes"
+	"github.com/soyougame/gotron-sdk/pkg/address"
+	"github.com/soyougame/gotron-sdk/pkg/common"
+	"github.com/soyougame/gotron-sdk/pkg/proto/core"
 	"github.com/spf13/cobra"
 )
 

@@ -4,11 +4,11 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/fbsobreira/gotron-sdk/pkg/address"
-	"github.com/fbsobreira/gotron-sdk/pkg/client/transaction"
-	"github.com/fbsobreira/gotron-sdk/pkg/common"
-	"github.com/fbsobreira/gotron-sdk/pkg/keystore"
-	"github.com/fbsobreira/gotron-sdk/pkg/store"
+	"github.com/soyougame/gotron-sdk/pkg/address"
+	"github.com/soyougame/gotron-sdk/pkg/client/transaction"
+	"github.com/soyougame/gotron-sdk/pkg/common"
+	"github.com/soyougame/gotron-sdk/pkg/keystore"
+	"github.com/soyougame/gotron-sdk/pkg/store"
 	"github.com/spf13/cobra"
 )
 
